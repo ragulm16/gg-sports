@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "title": "The beginning",
+    "description": "A simple belief: every player deserves a better starting point.",
+    "position": 0
+  },
+  {
+    "year": 2025,
+    "title": "Build the base",
+    "description": "Academy coaching, player pathways and stronger daily habits.",
+    "position": 1
+  },
+  {
+    "year": 2026,
+    "title": "The ecosystem",
+    "description": "Events, facilities and Gear Station join the player journey.",
+    "position": 2
+  },
+  {
+    "year": 2027,
+    "title": "Grow the game",
+    "description": "More teams, more competitions and more opportunities to perform.",
+    "position": 3
+  },
+  {
+    "year": 2028,
+    "title": "Next stage",
+    "description": "A wider cricket community built around progress and purpose.",
+    "position": 4
+  }
+]

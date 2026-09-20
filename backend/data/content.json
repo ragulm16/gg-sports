@@ -1,0 +1,41 @@
+[
+  {
+    "type": "EVENT",
+    "title": "GG Open Championship Cup",
+    "description": "Open registration tournament for developing and competitive players.",
+    "status": "PUBLISHED"
+  },
+  {
+    "type": "PRODUCT",
+    "title": "Custom team kits",
+    "description": "Custom apparel for teams, academies and corporate leagues.",
+    "status": "PUBLISHED"
+  },
+  {
+    "type": "SERVICE",
+    "title": "Bat repair & knocking",
+    "description": "Threading, binding, toe guards and professional bat knocking.",
+    "status": "PUBLISHED"
+  },
+  {
+    "type": "SECTION",
+    "title": "Academy",
+    "description": "Structured training that builds technique, discipline and confidence — from first practice to the biggest stage.",
+    "status": "PUBLISHED",
+    "metadata": "{\"eyebrow\":\"Build the player\"}"
+  },
+  {
+    "type": "SECTION",
+    "title": "Events",
+    "description": "Competition creates the experience that training alone cannot — tournaments, leagues, auction cups and corporate days.",
+    "status": "PUBLISHED",
+    "metadata": "{\"eyebrow\":\"Test the player\"}"
+  },
+  {
+    "type": "SECTION",
+    "title": "Gear Station",
+    "description": "Everything a player needs to prepare, perform and maintain their game — bats, protection, custom kits and bat care.",
+    "status": "PUBLISHED",
+    "metadata": "{\"eyebrow\":\"Equip the player\"}"
+  }
+]
