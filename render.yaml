@@ -18,21 +18,21 @@ services:
     healthCheckPath: /health
     autoDeploy: true
     envVars:
+      # SQLite file DB — fixed value, safe to sync on every deploy.
       - key: DATABASE_URL
         value: file:./dev.db
-        sync: false
       - key: PORT
         value: 4000
+      # Auto-generated once by Render and kept for the life of the service.
       - key: JWT_SECRET
         generateValue: true
       # Comma-separated list of allowed browser origins.
-      # Replace with your real Vercel URL after the frontend is deployed.
+      # Set AFTER the Vercel frontend is deployed (e.g. https://gg-sports-xxxx.vercel.app).
+      # sync: false + no value -> Render never overrides what you set in the dashboard.
       - key: CORS_ORIGIN
-        value: https://gg-sports.vercel.app
         sync: false
       - key: ADMIN_EMAIL
         value: admin@ggsports.in
-        sync: false
       # REQUIRED: set a strong password in the Render dashboard Environment section.
       # If left blank the seed uses the local default (ChangeMe123!) which is unsafe.
       - key: ADMIN_PASSWORD
