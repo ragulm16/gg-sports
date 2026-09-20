@@ -1,5 +1,11 @@
 # GG Sports — Free Deployment Guide
 
+> **Why not GitHub Pages?** A previous commit added GitHub's "Deploy Next.js to Pages"
+> workflow. That target is **not suitable here**: the site uses server-rendered routes
+> (`export const dynamic = "force-dynamic"`) and live API calls, which need a Node.js
+> server runtime. GitHub Pages only hosts static files, so that workflow was removed.
+> Use **Vercel** (frontend) + **Render** (API) instead — both free.
+
 Deploy the site on **free** tiers:
 - **Frontend (Next.js)** → [Vercel](https://vercel.com) (free Hobby plan)
 - **Backend (Express API)** → [Render](https://render.com) (free web service)
