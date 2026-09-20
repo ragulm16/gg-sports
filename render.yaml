@@ -1,0 +1,39 @@
+# Render Blueprint — deploys the GG Sports Express API on the free tier.
+# Full instructions: see DEPLOYMENT.md
+#
+# How to use:
+#   1. Push this file to GitHub.
+#   2. dashboard.render.com -> New -> Blueprint -> connect the gg-sports repo.
+#   3. Set CORS_ORIGIN to your deployed frontend URL and ADMIN_PASSWORD
+#      before/right after first deploy, then "Manual Deploy -> Latest Commit".
+
+services:
+  - type: web
+    name: gg-sports-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install && npm run prisma:generate
+    startCommand: npm run prisma:generate && npx prisma db push && npm run seed && npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db
+        sync: false
+      - key: PORT
+        value: 4000
+      - key: JWT_SECRET
+        generateValue: true
+      # Comma-separated list of allowed browser origins.
+      # Replace with your real Vercel URL after the frontend is deployed.
+      - key: CORS_ORIGIN
+        value: https://gg-sports.vercel.app
+        sync: false
+      - key: ADMIN_EMAIL
+        value: admin@ggsports.in
+        sync: false
+      # REQUIRED: set a strong password in the Render dashboard Environment section.
+      # If left blank the seed uses the local default (ChangeMe123!) which is unsafe.
+      - key: ADMIN_PASSWORD
+        sync: false

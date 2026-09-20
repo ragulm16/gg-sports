@@ -13,7 +13,15 @@ const { contentSchema, leadSchema, roadmapSchema, userSchema, registerSchema } =
 const app = express();
 app.set("trust proxy", 1);
 app.use(helmet());
-app.use(cors({ origin: config.corsOrigin, methods: ["GET", "POST", "PATCH", "DELETE"], allowedHeaders: ["Content-Type", "Authorization"] }));
+app.use(cors({
+  origin(origin, callback) {
+    // Allow requests that send no Origin header (curl, health checks) plus configured origins.
+    if (!origin || config.corsOrigins.includes(origin)) return callback(null, true);
+    return callback(null, false);
+  },
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 200, standardHeaders: "draft-7", legacyHeaders: false }));
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan("combined"));

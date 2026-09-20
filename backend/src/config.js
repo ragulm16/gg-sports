@@ -8,5 +8,9 @@ for (const key of required) {
 module.exports = {
   port: Number(process.env.PORT || 4000),
   jwtSecret: process.env.JWT_SECRET,
-  corsOrigin: process.env.CORS_ORIGIN || "http://localhost:3000",
+  // Accept a comma-separated list so local dev and one or more deployed origins can coexist.
+  corsOrigins: (process.env.CORS_ORIGIN || "http://localhost:3000")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
 };
